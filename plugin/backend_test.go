@@ -35,7 +35,7 @@ func TestBackend(t *testing.T) {
 func WriteConfig(t *testing.T) {
 	req := &logical.Request{
 		Operation: logical.UpdateOperation,
-		Path:      "config",
+		Path:      "config/connection",
 		Storage:   storage,
 		Data: map[string]interface{}{
 			"url":      "http://localhost:8080",
@@ -56,7 +56,7 @@ func WriteConfig(t *testing.T) {
 func ReadConfig(t *testing.T) {
 	req := &logical.Request{
 		Operation: logical.ReadOperation,
-		Path:      "config",
+		Path:      "config/connection",
 		Storage:   storage,
 	}
 	resp, err := b.HandleRequest(context.Background(), req)

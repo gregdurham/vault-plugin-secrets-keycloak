@@ -15,9 +15,9 @@ type keycloakConfig struct {
 	Realm    string `json:"realm"`
 }
 
-func pathConfig(b *backend) *framework.Path {
+func pathConfigConnection(b *backend) *framework.Path {
 	return &framework.Path{
-		Pattern: "config",
+		Pattern: "config/connection",
 
 		Fields: map[string]*framework.FieldSchema{
 			"url": &framework.FieldSchema{
@@ -39,14 +39,14 @@ func pathConfig(b *backend) *framework.Path {
 		},
 
 		Callbacks: map[logical.Operation]framework.OperationFunc{
-			logical.ReadOperation:   b.pathConfigRead,
-			logical.UpdateOperation: b.pathConfigWrite,
+			logical.ReadOperation:   b.pathConfigConnectionRead,
+			logical.UpdateOperation: b.pathConfigConnectionWrite,
 		},
 	}
 }
 
 func (b *backend) readConfig(ctx context.Context, storage logical.Storage) (*keycloakConfig, error, error) {
-	entry, err := storage.Get(ctx, "config")
+	entry, err := storage.Get(ctx, "config/connection")
 	if err != nil {
 		return nil, nil, err
 	}
@@ -63,7 +63,7 @@ func (b *backend) readConfig(ctx context.Context, storage logical.Storage) (*key
 	return conf, nil, nil
 }
 
-func (b *backend) pathConfigRead(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
+func (b *backend) pathConfigConnectionRead(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
 	conf, userErr, intErr := b.readConfig(ctx, req.Storage)
 	if intErr != nil {
 		return nil, intErr
@@ -84,7 +84,7 @@ func (b *backend) pathConfigRead(ctx context.Context, req *logical.Request, data
 
 }
 
-func (b *backend) pathConfigWrite(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
+func (b *backend) pathConfigConnectionWrite(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
 	url := data.Get("url").(string)
 	username := data.Get("username").(string)
 	password := data.Get("password").(string)
@@ -106,7 +106,7 @@ func (b *backend) pathConfigWrite(ctx context.Context, req *logical.Request, dat
 		return logical.ErrorResponse("realm parameter must be supplied"), nil
 	}
 
-	entry, err := logical.StorageEntryJSON("config", keycloakConfig{
+	entry, err := logical.StorageEntryJSON("config/connection", keycloakConfig{
 		Url:      url,
 		Username: username,
 		Password: password,

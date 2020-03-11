@@ -23,7 +23,7 @@ func Backend() *backend {
 	var b backend
 	b.Backend = &framework.Backend{
 		Paths: []*framework.Path{
-			pathConfig(&b),
+			pathConfigConnection(&b),
 			pathCredential(&b),
 		},
 		BackendType: logical.TypeLogical,

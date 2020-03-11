@@ -16,11 +16,43 @@ Otherwise, first read this guide on how to [get started with Vault](https://www.
 
 To learn specifically about how plugins work, see documentation on [Vault plugins](https://www.vaultproject.io/docs/internals/plugins.html).
 
-## Usage
+## Usage & API
+
+#### Configuration
+
+| Method   | Path                                       | Produces                 |
+| :------- | :----------------------------------------- | :----------------------- |
+| `POST`   | `/keycloak/config/connection`              | `200 (application/json)` |
+
+#### Parameters
+- `url` `(string)` - Specifies the url to the keycloak server, format should be: 
+  http://127.0.0.1:8080
+- `username` `(string)` - Specifies the username to authenticate to keycloak with
+- `password` `(string)` - Specifies the password for the user to authenticate to 
+  keycloak with
+- `realm` `(string)` - Specifies the realm in which the client(s) which credentials 
+  will be requested for as well as the user exists 
+
+| Method   | Path                                       | Produces                 |
+| :------- | :----------------------------------------- | :----------------------- |
+| `GET`   | `/keycloak/creds/:name`                     | `200 (application/json)` |
+
+#### Parameters
+- `name` `(string)` - Specifies the name of the keycloak client to request the credentials for
+
+#### CLI
 
 ```sh
 $ vault secrets enable keycloak
 Success! Enabled the keycloak secrets engine at: keycloak/
+```
+
+```sh
+$ vault write keycloak/config/connection url=http://localhost:8080 username=admin password=password realm=master
+```
+
+```sh
+$ vault read keycloak/creds/clientName
 ```
 
 ## Developing
