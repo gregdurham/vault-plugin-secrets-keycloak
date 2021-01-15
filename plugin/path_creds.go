@@ -6,8 +6,6 @@ import (
 
 	"github.com/hashicorp/vault/sdk/framework"
 	"github.com/hashicorp/vault/sdk/logical"
-
-	"github.com/Nerzal/gocloak/v3"
 )
 
 func pathCredential(b *backend) *framework.Path {
@@ -27,24 +25,6 @@ func pathCredential(b *backend) *framework.Path {
 	}
 }
 
-func getClientByClientID(client gocloak.GoCloak, token string, realm string, clientID string) (*gocloak.Client, error) {
-	clients, err := client.GetClients(token,
-		realm,
-		gocloak.GetClientsParams{
-			ClientID: clientID,
-		})
-	if err != nil {
-		return nil, err
-	}
-
-	for _, fetchedClient := range clients {
-		if fetchedClient.ClientID == clientID {
-			return fetchedClient, nil
-		}
-	}
-	return nil, nil
-}
-
 func (b *backend) pathCredentialRead(ctx context.Context, req *logical.Request,
 	d *framework.FieldData) (*logical.Response, error) {
 
@@ -59,27 +39,19 @@ func (b *backend) pathCredentialRead(ctx context.Context, req *logical.Request,
 		return logical.ErrorResponse(userErr.Error()), nil
 	}
 
-	token := client.Token
-	kcClient := client.Client
-	realm := client.Realm
+	secret, err := client.getClientSecret(ctx, clientId)
 
-	kcFetchedClient, err := getClientByClientID(kcClient, token.AccessToken, realm, clientId)
 	if err != nil {
 		return nil, err
 	}
 
-	if kcFetchedClient == nil {
+	if secret == "" {
 		return logical.ErrorResponse(fmt.Sprintf("client %q does not exist on keycloak", clientId)), nil
-	}
-
-	creds, err := kcClient.GetClientSecret(token.AccessToken, realm, kcFetchedClient.ID)
-	if err != nil {
-		return nil, err
 	}
 
 	return &logical.Response{
 		Data: map[string]interface{}{
-			"value": creds.Value,
+			"value": secret,
 		},
 	}, nil
 }

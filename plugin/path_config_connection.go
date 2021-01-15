@@ -9,10 +9,13 @@ import (
 )
 
 type keycloakConfig struct {
-	Url      string `json:"url"`
-	Username string `json:"username"`
-	Password string `json:"password"`
-	Realm    string `json:"realm"`
+	Url          string `json:"url"`
+	GrantType    string `json:"grant_type"`
+	Username     string `json:"username"`
+	Password     string `json:"password"`
+	ClientId     string `json:"client_id"`
+	ClientSecret string `json:"client_secret"`
+	Realm        string `json:"realm"`
 }
 
 func pathConfigConnection(b *backend) *framework.Path {
@@ -32,9 +35,21 @@ func pathConfigConnection(b *backend) *framework.Path {
 				Type:        framework.TypeString,
 				Description: "Keycloak Admin password",
 			},
+			"client_id": &framework.FieldSchema{
+				Type:        framework.TypeString,
+				Description: "Keycloak client_id",
+			},
+			"client_secret": &framework.FieldSchema{
+				Type:        framework.TypeString,
+				Description: "Keycloak client_secret",
+			},
 			"realm": &framework.FieldSchema{
 				Type:        framework.TypeString,
 				Description: "Keycloak realm",
+			},
+			"grant_type": &framework.FieldSchema{
+				Type:        framework.TypeString,
+				Description: "grant_type used for authenticating to keycloak",
 			},
 		},
 
@@ -88,29 +103,52 @@ func (b *backend) pathConfigConnectionWrite(ctx context.Context, req *logical.Re
 	url := data.Get("url").(string)
 	username := data.Get("username").(string)
 	password := data.Get("password").(string)
+	clientId := data.Get("client_id").(string)
+	clientSecret := data.Get("client_secret").(string)
 	realm := data.Get("realm").(string)
+	grantType := data.Get("grant_type").(string)
 
 	if url == "" {
 		return logical.ErrorResponse("url parameter must be supplied"), nil
-	}
-
-	if username == "" {
-		return logical.ErrorResponse("username parameter must be supplied"), nil
-	}
-
-	if password == "" {
-		return logical.ErrorResponse("password parameter must be supplied"), nil
 	}
 
 	if realm == "" {
 		return logical.ErrorResponse("realm parameter must be supplied"), nil
 	}
 
+	if grantType == "" {
+		grantType = "password"
+	}
+
+	switch grantType {
+	case "password":
+		if username == "" {
+			return logical.ErrorResponse("Username parameter must be supplied when using password grant_type"), nil
+		}
+
+		if password == "" {
+			return logical.ErrorResponse("Password parameter must be supplied when using password grant_type"), nil
+		}
+	case "client_credentials":
+		if clientId == "" {
+			return logical.ErrorResponse("clientId parameter must be supplied when using client_credentials grant_type"), nil
+		}
+
+		if clientSecret == "" {
+			return logical.ErrorResponse("clientSecret parameter must be supplied when using client_credentials grant_type"), nil
+		}
+	default:
+		return logical.ErrorResponse("Invalid grant_type supplied, available options are password and client_credentials"), nil
+	}
+
 	entry, err := logical.StorageEntryJSON("config/connection", keycloakConfig{
-		Url:      url,
-		Username: username,
-		Password: password,
-		Realm:    realm,
+		Url:          url,
+		GrantType:    grantType,
+		Username:     username,
+		Password:     password,
+		ClientId:     clientId,
+		ClientSecret: clientSecret,
+		Realm:        realm,
 	})
 
 	if err != nil {
