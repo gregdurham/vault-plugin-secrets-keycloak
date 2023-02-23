@@ -1,172 +1,222 @@
-# github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310
+# github.com/Nerzal/gocloak/v7 v7.11.0
+github.com/Nerzal/gocloak/v7
+github.com/Nerzal/gocloak/v7/pkg/jwx
+# github.com/armon/go-radix v1.0.0
 github.com/armon/go-radix
-# github.com/go-errors/errors v1.0.1
-github.com/go-errors/errors
-# github.com/go-ldap/ldap v3.0.2+incompatible
-github.com/go-ldap/ldap
-# github.com/golang/protobuf v1.3.1
+# github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1
+github.com/dgrijalva/jwt-go/v4
+# github.com/fatih/color v1.10.0
+github.com/fatih/color
+# github.com/go-resty/resty/v2 v2.4.0
+github.com/go-resty/resty/v2
+# github.com/golang/protobuf v1.4.3
 github.com/golang/protobuf/proto
+github.com/golang/protobuf/protoc-gen-go/descriptor
 github.com/golang/protobuf/ptypes
-github.com/golang/protobuf/ptypes/timestamp
 github.com/golang/protobuf/ptypes/any
 github.com/golang/protobuf/ptypes/duration
-# github.com/golang/snappy v0.0.1
+github.com/golang/protobuf/ptypes/empty
+github.com/golang/protobuf/ptypes/timestamp
+# github.com/golang/snappy v0.0.2
 github.com/golang/snappy
-# github.com/hashicorp/errwrap v1.0.0
+# github.com/hashicorp/errwrap v1.1.0
 github.com/hashicorp/errwrap
 # github.com/hashicorp/go-cleanhttp v0.5.1
 github.com/hashicorp/go-cleanhttp
-# github.com/hashicorp/go-hclog v0.8.0
+# github.com/hashicorp/go-hclog v0.15.0
 github.com/hashicorp/go-hclog
-# github.com/hashicorp/go-immutable-radix v1.0.0
+# github.com/hashicorp/go-immutable-radix v1.3.0
 github.com/hashicorp/go-immutable-radix
-# github.com/hashicorp/go-multierror v1.0.0
+# github.com/hashicorp/go-multierror v1.1.0
 github.com/hashicorp/go-multierror
-# github.com/hashicorp/go-plugin v1.0.1
+# github.com/hashicorp/go-plugin v1.4.0
 github.com/hashicorp/go-plugin
 github.com/hashicorp/go-plugin/internal/plugin
-# github.com/hashicorp/go-retryablehttp v0.5.4
+# github.com/hashicorp/go-retryablehttp v0.6.8
 github.com/hashicorp/go-retryablehttp
-# github.com/hashicorp/go-rootcerts v1.0.1
+# github.com/hashicorp/go-rootcerts v1.0.2
 github.com/hashicorp/go-rootcerts
 # github.com/hashicorp/go-sockaddr v1.0.2
 github.com/hashicorp/go-sockaddr
-# github.com/hashicorp/go-uuid v1.0.1
+# github.com/hashicorp/go-uuid v1.0.2
 github.com/hashicorp/go-uuid
-# github.com/hashicorp/go-version v1.1.0
+# github.com/hashicorp/go-version v1.2.1
 github.com/hashicorp/go-version
-# github.com/hashicorp/golang-lru v0.5.1
+# github.com/hashicorp/golang-lru v0.5.4
 github.com/hashicorp/golang-lru
 github.com/hashicorp/golang-lru/simplelru
 # github.com/hashicorp/hcl v1.0.0
 github.com/hashicorp/hcl
 github.com/hashicorp/hcl/hcl/ast
 github.com/hashicorp/hcl/hcl/parser
-github.com/hashicorp/hcl/hcl/token
-github.com/hashicorp/hcl/json/parser
 github.com/hashicorp/hcl/hcl/scanner
 github.com/hashicorp/hcl/hcl/strconv
+github.com/hashicorp/hcl/hcl/token
+github.com/hashicorp/hcl/json/parser
 github.com/hashicorp/hcl/json/scanner
 github.com/hashicorp/hcl/json/token
-# github.com/hashicorp/vault/api v1.0.5-0.20190814205728-e9c5cd8aca98
+# github.com/hashicorp/vault/api v1.0.4
 github.com/hashicorp/vault/api
-# github.com/hashicorp/vault/sdk v0.1.14-0.20190814205504-1cad00d1133b
-github.com/hashicorp/vault/sdk/plugin
+# github.com/hashicorp/vault/sdk v0.1.13
 github.com/hashicorp/vault/sdk/framework
-github.com/hashicorp/vault/sdk/helper/ldaputil
-github.com/hashicorp/vault/sdk/logical
+github.com/hashicorp/vault/sdk/helper/certutil
+github.com/hashicorp/vault/sdk/helper/compressutil
 github.com/hashicorp/vault/sdk/helper/consts
+github.com/hashicorp/vault/sdk/helper/cryptoutil
+github.com/hashicorp/vault/sdk/helper/errutil
 github.com/hashicorp/vault/sdk/helper/hclutil
 github.com/hashicorp/vault/sdk/helper/jsonutil
-github.com/hashicorp/vault/sdk/helper/parseutil
 github.com/hashicorp/vault/sdk/helper/license
-github.com/hashicorp/vault/sdk/helper/pluginutil
-github.com/hashicorp/vault/sdk/helper/wrapping
-github.com/hashicorp/vault/sdk/plugin/pb
-github.com/hashicorp/vault/sdk/helper/errutil
+github.com/hashicorp/vault/sdk/helper/locksutil
 github.com/hashicorp/vault/sdk/helper/logging
+github.com/hashicorp/vault/sdk/helper/mlock
+github.com/hashicorp/vault/sdk/helper/parseutil
+github.com/hashicorp/vault/sdk/helper/pathmanager
+github.com/hashicorp/vault/sdk/helper/pluginutil
 github.com/hashicorp/vault/sdk/helper/salt
 github.com/hashicorp/vault/sdk/helper/strutil
-github.com/hashicorp/vault/sdk/version
-github.com/hashicorp/vault/sdk/helper/tlsutil
+github.com/hashicorp/vault/sdk/helper/wrapping
+github.com/hashicorp/vault/sdk/logical
 github.com/hashicorp/vault/sdk/physical
 github.com/hashicorp/vault/sdk/physical/inmem
-github.com/hashicorp/vault/sdk/helper/compressutil
-github.com/hashicorp/vault/sdk/helper/certutil
-github.com/hashicorp/vault/sdk/helper/mlock
-github.com/hashicorp/vault/sdk/helper/locksutil
-github.com/hashicorp/vault/sdk/helper/pathmanager
-github.com/hashicorp/vault/sdk/helper/cryptoutil
-# github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d
+github.com/hashicorp/vault/sdk/plugin
+github.com/hashicorp/vault/sdk/plugin/pb
+github.com/hashicorp/vault/sdk/version
+# github.com/hashicorp/yamux v0.0.0-20200609203250-aecfd211c9ce
 github.com/hashicorp/yamux
+# github.com/mattn/go-colorable v0.1.8
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.12
+github.com/mattn/go-isatty
 # github.com/mitchellh/go-homedir v1.1.0
 github.com/mitchellh/go-homedir
-# github.com/mitchellh/go-testing-interface v1.0.0
+# github.com/mitchellh/go-testing-interface v1.14.1
 github.com/mitchellh/go-testing-interface
-# github.com/mitchellh/mapstructure v1.1.2
+# github.com/mitchellh/mapstructure v1.4.1
 github.com/mitchellh/mapstructure
-# github.com/oklog/run v1.0.0
+# github.com/oklog/run v1.1.0
 github.com/oklog/run
-# github.com/patrickmn/go-cache v2.1.0+incompatible
-github.com/patrickmn/go-cache
-# github.com/pierrec/lz4 v2.0.5+incompatible
+# github.com/pierrec/lz4 v2.6.0+incompatible
 github.com/pierrec/lz4
 github.com/pierrec/lz4/internal/xxh32
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
 # github.com/ryanuber/go-glob v1.0.0
 github.com/ryanuber/go-glob
-# golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2
-golang.org/x/crypto/ed25519
-golang.org/x/crypto/pbkdf2
+# github.com/segmentio/ksuid v1.0.3
+github.com/segmentio/ksuid
+# golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+golang.org/x/crypto/blake2b
 golang.org/x/crypto/cryptobyte
 golang.org/x/crypto/cryptobyte/asn1
+golang.org/x/crypto/ed25519
 golang.org/x/crypto/ed25519/internal/edwards25519
-golang.org/x/crypto/blake2b
-# golang.org/x/net v0.0.0-20190620200207-3b0461eec859
-golang.org/x/net/http2
+golang.org/x/crypto/pbkdf2
+# golang.org/x/net v0.0.0-20220722155237-a158d28d115b
+golang.org/x/net/context
 golang.org/x/net/http/httpguts
+golang.org/x/net/http2
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
-golang.org/x/net/context
-golang.org/x/net/trace
 golang.org/x/net/internal/timeseries
-# golang.org/x/sys v0.0.0-20190403152447-81d4e9dc473e
-golang.org/x/sys/unix
+golang.org/x/net/publicsuffix
+golang.org/x/net/trace
+# golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f
 golang.org/x/sys/cpu
-# golang.org/x/text v0.3.1-0.20181227161524-e6919f6577db
-golang.org/x/text/encoding/unicode
-golang.org/x/text/encoding
-golang.org/x/text/encoding/internal
-golang.org/x/text/encoding/internal/identifier
-golang.org/x/text/internal/utf8internal
-golang.org/x/text/runes
-golang.org/x/text/transform
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/unix
+# golang.org/x/text v0.3.8
 golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+# golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 golang.org/x/time/rate
-# google.golang.org/genproto v0.0.0-20190404172233-64821d5d2107
+# google.golang.org/genproto v0.0.0-20210113195801-ae06605f4595
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.22.0
+# google.golang.org/grpc v1.35.0
 google.golang.org/grpc
-google.golang.org/grpc/codes
-google.golang.org/grpc/status
-google.golang.org/grpc/credentials
-google.golang.org/grpc/health
-google.golang.org/grpc/health/grpc_health_v1
+google.golang.org/grpc/attributes
+google.golang.org/grpc/backoff
 google.golang.org/grpc/balancer
+google.golang.org/grpc/balancer/base
+google.golang.org/grpc/balancer/grpclb/state
 google.golang.org/grpc/balancer/roundrobin
+google.golang.org/grpc/binarylog/grpc_binarylog_v1
+google.golang.org/grpc/codes
 google.golang.org/grpc/connectivity
+google.golang.org/grpc/credentials
 google.golang.org/grpc/encoding
 google.golang.org/grpc/encoding/proto
 google.golang.org/grpc/grpclog
+google.golang.org/grpc/health
+google.golang.org/grpc/health/grpc_health_v1
 google.golang.org/grpc/internal
 google.golang.org/grpc/internal/backoff
 google.golang.org/grpc/internal/balancerload
 google.golang.org/grpc/internal/binarylog
+google.golang.org/grpc/internal/buffer
 google.golang.org/grpc/internal/channelz
+google.golang.org/grpc/internal/credentials
 google.golang.org/grpc/internal/envconfig
+google.golang.org/grpc/internal/grpclog
 google.golang.org/grpc/internal/grpcrand
 google.golang.org/grpc/internal/grpcsync
+google.golang.org/grpc/internal/grpcutil
+google.golang.org/grpc/internal/metadata
+google.golang.org/grpc/internal/resolver
+google.golang.org/grpc/internal/resolver/dns
+google.golang.org/grpc/internal/resolver/passthrough
+google.golang.org/grpc/internal/resolver/unix
+google.golang.org/grpc/internal/serviceconfig
+google.golang.org/grpc/internal/status
+google.golang.org/grpc/internal/syscall
 google.golang.org/grpc/internal/transport
+google.golang.org/grpc/internal/transport/networktype
 google.golang.org/grpc/keepalive
 google.golang.org/grpc/metadata
-google.golang.org/grpc/naming
 google.golang.org/grpc/peer
+google.golang.org/grpc/reflection
+google.golang.org/grpc/reflection/grpc_reflection_v1alpha
 google.golang.org/grpc/resolver
-google.golang.org/grpc/resolver/dns
-google.golang.org/grpc/resolver/passthrough
 google.golang.org/grpc/serviceconfig
 google.golang.org/grpc/stats
+google.golang.org/grpc/status
 google.golang.org/grpc/tap
-google.golang.org/grpc/credentials/internal
-google.golang.org/grpc/balancer/base
-google.golang.org/grpc/binarylog/grpc_binarylog_v1
-google.golang.org/grpc/internal/syscall
-# gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d
-gopkg.in/asn1-ber.v1
-# gopkg.in/square/go-jose.v2 v2.3.1
-gopkg.in/square/go-jose.v2/jwt
+# google.golang.org/protobuf v1.25.0
+google.golang.org/protobuf/encoding/prototext
+google.golang.org/protobuf/encoding/protowire
+google.golang.org/protobuf/internal/descfmt
+google.golang.org/protobuf/internal/descopts
+google.golang.org/protobuf/internal/detrand
+google.golang.org/protobuf/internal/encoding/defval
+google.golang.org/protobuf/internal/encoding/messageset
+google.golang.org/protobuf/internal/encoding/tag
+google.golang.org/protobuf/internal/encoding/text
+google.golang.org/protobuf/internal/errors
+google.golang.org/protobuf/internal/fieldsort
+google.golang.org/protobuf/internal/filedesc
+google.golang.org/protobuf/internal/filetype
+google.golang.org/protobuf/internal/flags
+google.golang.org/protobuf/internal/genid
+google.golang.org/protobuf/internal/impl
+google.golang.org/protobuf/internal/mapsort
+google.golang.org/protobuf/internal/pragma
+google.golang.org/protobuf/internal/set
+google.golang.org/protobuf/internal/strs
+google.golang.org/protobuf/internal/version
+google.golang.org/protobuf/proto
+google.golang.org/protobuf/reflect/protoreflect
+google.golang.org/protobuf/reflect/protoregistry
+google.golang.org/protobuf/runtime/protoiface
+google.golang.org/protobuf/runtime/protoimpl
+google.golang.org/protobuf/types/descriptorpb
+google.golang.org/protobuf/types/known/anypb
+google.golang.org/protobuf/types/known/durationpb
+google.golang.org/protobuf/types/known/emptypb
+google.golang.org/protobuf/types/known/timestamppb
+# gopkg.in/square/go-jose.v2 v2.5.1
 gopkg.in/square/go-jose.v2
-gopkg.in/square/go-jose.v2/json
 gopkg.in/square/go-jose.v2/cipher
+gopkg.in/square/go-jose.v2/json
+gopkg.in/square/go-jose.v2/jwt
